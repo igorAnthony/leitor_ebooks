@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:leitura_de_ebooks/utils/colors.dart';
 import 'package:leitura_de_ebooks/utils/dimensions.dart';
 import 'package:leitura_de_ebooks/features/home/provider/ebook_provider.dart';
@@ -18,67 +19,106 @@ class BookWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ebookProvider = EbookProvider.of(context);
-    print(ebookProvider!.listOfEbook[index].title);
-    return Card(
-      child: Container(
-        width: Dimensions.bookWidth,
-        height: Dimensions.bookHeight,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(Dimensions.borderRadiousImage),
-          image: DecorationImage(
-            image: NetworkImage(ebookProvider.listOfEbook[index].coverUrl),
-            fit: BoxFit.cover,
+    return GestureDetector(
+      onTap: () {
+        downloadAndOpenEpub(ebookProvider.listOfEbook[index]);
+        ebookProvider.listOfEbook[index].isDownloaded = true;
+        ebookProvider.updateEbook(ebookProvider.listOfEbook[index]);
+      },
+      child: Card(
+        child: Container(
+          width: Dimensions.bookWidth,
+          height: Dimensions.bookHeight,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(Dimensions.borderRadiousImage),
+            image: DecorationImage(
+              image: NetworkImage(ebookProvider!.listOfEbook[index].coverUrl),
+              fit: BoxFit.cover,
+            ),
           ),
-        ),
-        child: Stack(
-          children: [
-            Positioned(
-              bottom: 0,
-              child: Container(
-                width: Dimensions.bookWidth,
-                height: Dimensions.bookHeight * 0.3,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(Dimensions.borderRadiousSm),
+          child: Stack(
+            children: [
+              Positioned(
+                bottom: 0,
+                child: Container(
+                  width: Dimensions.bookWidth,
+                  height: Dimensions.bookHeight * 0.3,
+                  decoration: BoxDecoration(
+                    borderRadius:
+                        BorderRadius.circular(Dimensions.borderRadiousSm),
+                  ),
                 ),
               ),
-            ),
-            Positioned(
-              bottom: 0,
-              right: 0,
-              child: IconButton(
-                onPressed: () {
-                  downloadAndOpenEpub(ebookProvider.listOfEbook[index]);
-                  ebookProvider.listOfEbook[index].isDownloaded = true;
-                  ebookProvider.updateEbook(ebookProvider.listOfEbook[index]);
-                },
-                icon: Icon(
-                  ebookProvider.listOfEbook[index].isDownloaded!
-                      ? Icons.book_rounded
-                      : Icons.download_rounded,
-                  color: AppColors.iconColor,
+              Align(
+                alignment: Alignment.bottomCenter,
+                child: Container(
+                  height: 25,
+                  width: MediaQuery.of(context).size.width * 0.5,
+                  decoration: BoxDecoration(
+                      color: Color(0xFF336699).withOpacity(0.5),
+                      borderRadius: BorderRadius.only(
+                        bottomLeft: Radius.circular(Dimensions.borderRadiousSm),
+                        bottomRight:
+                            Radius.circular(Dimensions.borderRadiousSm),
+                      )),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        ebookProvider.listOfEbook[index].isDownloaded!
+                            ? 'Toque para Ler'
+                            : 'Toque para Baixar',
+                        style: GoogleFonts.silkscreen(
+                          textStyle: TextStyle(
+                            color: AppColors.white,
+                            fontSize: 8,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
-            ),
-            Positioned(
-              top: 0,
-              right: 0,
-              child: IconButton(
-                onPressed: () {
-                  ebookProvider.listOfEbook[index].isFavorite =
-                      !ebookProvider.listOfEbook[index].isFavorite!;
-                  ebookProvider.updateEbook(ebookProvider.listOfEbook[index]);
-                  updateFavoriteIds(ebookProvider.listOfEbook[index].id.toString(),
-                      ebookProvider.listOfEbook[index].isFavorite!);
-                },
-                icon: Icon(
-                  ebookProvider.listOfEbook[index].isFavorite!
-                      ? Icons.favorite_rounded
-                      : Icons.favorite_border_rounded,
-                  color: AppColors.iconColor,
+              //download icon
+              Positioned(
+                top: 0,
+                left: 0,
+                child: IconButton(
+                  onPressed: () {
+                    
+                  },
+                  icon: Icon(
+                    ebookProvider.listOfEbook[index].isDownloaded!
+                        ? Icons.download_done_rounded
+                        : Icons.download_rounded,
+                    color: Color(0xFF336699),
+                  ),
                 ),
               ),
-            ),
-          ],
+
+              Positioned(
+                top: 0,
+                right: 0,
+                child: IconButton(
+                  onPressed: () {
+                    ebookProvider.listOfEbook[index].isFavorite =
+                        !ebookProvider.listOfEbook[index].isFavorite!;
+                    ebookProvider.updateEbook(ebookProvider.listOfEbook[index]);
+                    updateFavoriteIds(
+                        ebookProvider.listOfEbook[index].id.toString(),
+                        ebookProvider.listOfEbook[index].isFavorite!);
+                  },
+                  icon: Icon(
+                    ebookProvider.listOfEbook[index].isFavorite!
+                        ? Icons.favorite_rounded
+                        : Icons.favorite_border_rounded,
+                    color: AppColors.iconFavorite,
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -122,7 +162,7 @@ class BookWidget extends StatelessWidget {
       scrollDirection: EpubScrollDirection.ALLDIRECTIONS,
       allowSharing: true,
       enableTts: true,
-      nightMode: true, 
+      nightMode: true,
     );
 
     VocsyEpub.open(
