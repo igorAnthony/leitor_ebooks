@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:leitura_de_ebooks/features/home/presentation/ebook_page.dart';
 import 'package:leitura_de_ebooks/features/home/provider/ebook_provider.dart';
 import 'package:leitura_de_ebooks/models/ebook_model.dart';
 import 'package:dio/dio.dart';
+import 'package:leitura_de_ebooks/utils/colors.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class EbookWidgetPai extends StatefulWidget {
@@ -18,11 +20,9 @@ class _EbookWidgetPaiState extends State<EbookWidgetPai> {
 
   Future<List<EbookModel>> retornaListaDeEbooks() async {
     Dio dio = Dio();
-    //'https://escribo.com/books.json'
     final response = await dio.get('https://escribo.com/books.json');
 
     if (response.statusCode == 200) {
-      // Se a requisição for bem-sucedida, parseie os dados JSON
       final List<dynamic> jsonData = response.data;
       final List<String> favoriteIds = await getFavoriteIds();
       return jsonData
@@ -34,7 +34,6 @@ class _EbookWidgetPaiState extends State<EbookWidgetPai> {
         return ebook;
       }).toList();
     } else {
-      // Se a requisição falhar, lance uma exceção
       throw Exception('Falha ao carregar os ebooks');
     }
   }

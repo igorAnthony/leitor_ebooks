@@ -12,6 +12,9 @@ class Dimensions {
   static const double borderRadiousImage = 10;
   static const double borderRadiousSm = 10;
   static const double iconSize = 20;
+  static const double iconSizeMd = 30;
+  static const double fontSize20 = 20;
   static const double paddingSm = 8;
   static const double paddingLg = 30;
+  static const double sizedXs = 10;
 }

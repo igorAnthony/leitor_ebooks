@@ -10,7 +10,6 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.2
-  google_fonts: ^6.1.0
   shared_preferences: ^2.2.2
   http: ^1.1.2
   vocsy_epub_viewer: ^2.0.0
@@ -18,16 +17,14 @@ dependencies:
   device_info_plus: ^9.1.1
   path_provider: ^2.1.1
   permission_handler: ^11.1.0
-  flutter_riverpod: ^2.4.9
-  riverpod_annotation: ^2.3.3
+  google_fonts: ^6.1.0
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^2.0.0
   build_runner: ^2.4.7
-  custom_lint:
-  riverpod_generator: ^2.3.9
-  riverpod_lint: ^2.3.7
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets/logo.jpg

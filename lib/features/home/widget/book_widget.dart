@@ -59,7 +59,6 @@ class BookWidget extends StatelessWidget {
                 ),
               ),
             ),
-            //cria um marcador de favorito
             Positioned(
               top: 0,
               right: 0,
@@ -118,7 +117,7 @@ class BookWidget extends StatelessWidget {
 
   void openEpubViewer(String filePath) {
     VocsyEpub.setConfig(
-      themeColor: AppColors.iconColor, // Altere para a cor desejada
+      themeColor: AppColors.iconColor,
       identifier: "myBook",
       scrollDirection: EpubScrollDirection.ALLDIRECTIONS,
       allowSharing: true,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:leitura_de_ebooks/utils/colors.dart';
 import 'package:leitura_de_ebooks/utils/dimensions.dart';
 import 'package:leitura_de_ebooks/features/home/provider/ebook_provider.dart';
@@ -17,14 +18,38 @@ class _EbookListState extends State<EbookList> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 2, // Número de abas
+      length: 2,
       child: Column(
         children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Padding(
+                padding: EdgeInsets.symmetric(vertical: Dimensions.paddingLg),
+                child: Text('Leitura de Ebooks',
+                    style: GoogleFonts.silkscreen(
+                        textStyle: TextStyle(
+                            color: AppColors.textColor,
+                            fontSize: Dimensions.fontSize20,
+                            fontWeight: FontWeight.bold))),
+              ),
+              SizedBox(
+                width: Dimensions.sizedXs,
+              ),
+              Icon(
+                Icons.chrome_reader_mode,
+                size: Dimensions.iconSize,
+                color: AppColors.textColor,
+              ),
+            ],
+          ),
+          //icon book
+
           const TabBar(
-             labelColor: AppColors.textColor,
-                unselectedLabelColor: AppColors.white,
-                indicatorSize: TabBarIndicatorSize.tab,
-                indicatorColor: AppColors.textColor,
+            labelColor: AppColors.textColor,
+            unselectedLabelColor: AppColors.white,
+            indicatorSize: TabBarIndicatorSize.tab,
+            indicatorColor: AppColors.textColor,
             tabs: [
               Tab(text: 'Livros'),
               Tab(text: 'Favoritos'),

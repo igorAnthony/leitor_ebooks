@@ -18,21 +18,18 @@ class EbookProvider extends InheritedWidget {
 
   static EbookProvider? of(BuildContext context) => context.dependOnInheritedWidgetOfExactType<EbookProvider>();
 
-  // Adiciona um eBook à lista
   void addEbook(EbookModel ebook) {
     List<EbookModel> updatedList = List.from(listOfEbook);
     updatedList.add(ebook);
     onListChanged(updatedList);
   }
 
-  // Remove um eBook da lista
   void removeEbook(EbookModel ebook) {
     List<EbookModel> updatedList = List.from(listOfEbook);
     updatedList.remove(ebook);
     onListChanged(updatedList);
   }
 
-  // Atualiza um eBook da lista
   void updateEbook(EbookModel ebook) {
     List<EbookModel> updatedList = List.from(listOfEbook);
     int index = updatedList.indexWhere((element) => element.id == ebook.id);
