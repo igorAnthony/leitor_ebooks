@@ -45,11 +45,15 @@ class _EbookListState extends State<EbookList> {
           ),
           //icon book
 
-          const TabBar(
+          TabBar(
             labelColor: AppColors.textColor,
             unselectedLabelColor: AppColors.white,
             indicatorSize: TabBarIndicatorSize.tab,
             indicatorColor: AppColors.textColor,
+            labelStyle: GoogleFonts.silkscreen(
+                textStyle: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold)),
             tabs: [
               Tab(text: 'Livros'),
               Tab(text: 'Favoritos'),
