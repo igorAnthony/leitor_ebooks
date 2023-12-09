@@ -95,7 +95,7 @@ class _EbookListState extends State<EbookList> {
           for (int i = 0; i < ebookProvider!.listOfEbook.length; i++)
             if (ebookProvider.listOfEbook[i].isFavorite!)
               Container(
-                padding: const EdgeInsets.all(Dimensions.paddingLg),
+                padding: const EdgeInsets.all(Dimensions.paddingSm),
                 child: BookWidget(index: i),
               )
         ],
