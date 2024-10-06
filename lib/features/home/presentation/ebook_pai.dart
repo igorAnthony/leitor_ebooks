@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:leitura_de_ebooks/features/home/presentation/ebook_page.dart';
-import 'package:leitura_de_ebooks/features/home/provider/ebook_provider.dart';
-import 'package:leitura_de_ebooks/models/ebook_model.dart';
+import 'package:leitura_de_ebooks_flutter_app/features/home/presentation/ebook_page.dart';
+import 'package:leitura_de_ebooks_flutter_app/features/home/provider/ebook_provider.dart';
+import 'package:leitura_de_ebooks_flutter_app/models/ebook_model.dart';
 import 'package:dio/dio.dart';
-import 'package:leitura_de_ebooks/utils/colors.dart';
+import 'package:leitura_de_ebooks_flutter_app/utils/colors.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class EbookWidgetPai extends StatefulWidget {

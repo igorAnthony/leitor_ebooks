@@ -1,5 +1,5 @@
 import 'package:flutter/widgets.dart';
-import 'package:leitura_de_ebooks/models/ebook_model.dart';
+import 'package:leitura_de_ebooks_flutter_app/models/ebook_model.dart';
 
 
 class EbookProvider extends InheritedWidget {

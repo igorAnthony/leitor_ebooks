@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:leitura_de_ebooks/features/home/presentation/ebook_list.dart';
+import 'package:leitura_de_ebooks_flutter_app/features/home/presentation/ebook_list.dart';
 
 class EbookPage extends StatefulWidget {
   const EbookPage({super.key});

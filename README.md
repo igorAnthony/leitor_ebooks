@@ -1,33 +1,16 @@
-Configuração do Ambiente
+# leitura_de_ebooks_flutter_app
 
-Antes de começar, certifique-se de ter o Flutter e o Dart instalados em sua máquina. Se ainda não tiver, siga as instruções em flutter.dev para configurar o ambiente de desenvolvimento.
-Obtendo o Código Fonte
+A new Flutter project.
 
-Clone o repositório para sua máquina local:
-```bash
-git clone https://github.com/seu-usuario/seu-projeto.git](https://github.com/igorAnthony/leitor_de_ebooks
-```
-```bash
-cd leitura_ebook
-```
-Instalando Dependências
+## Getting Started
 
-- Execute o seguinte comando para instalar as dependências do projeto:
+This project is a starting point for a Flutter application.
 
-```bash
-flutter pub get
-```
-Executando o Projeto
+A few resources to get you started if this is your first Flutter project:
 
-- Para rodar o projeto no emulador ou dispositivo físico, utilize o seguinte comando:
+- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
+- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-```bash
-flutter run
-```
-Compilando para Android
-
-- Se deseja compilar o aplicativo para Android, utilize o seguinte comando:
-```bash
-flutter build apk
-```
-O APK será gerado na pasta build/app/outputs/flutter-apk/.
+For help getting started with Flutter development, view the
+[online documentation](https://docs.flutter.dev/), which offers tutorials,
+samples, guidance on mobile development, and a full API reference.

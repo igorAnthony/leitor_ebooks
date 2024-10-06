@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:leitura_de_ebooks/utils/colors.dart';
-import 'package:leitura_de_ebooks/utils/dimensions.dart';
-import 'package:leitura_de_ebooks/features/home/provider/ebook_provider.dart';
-import 'package:leitura_de_ebooks/features/home/widget/book_widget.dart';
+import 'package:leitura_de_ebooks_flutter_app/utils/colors.dart';
+import 'package:leitura_de_ebooks_flutter_app/utils/dimensions.dart';
+import 'package:leitura_de_ebooks_flutter_app/features/home/provider/ebook_provider.dart';
+import 'package:leitura_de_ebooks_flutter_app/features/home/widget/book_widget.dart';
 
 class EbookList extends StatefulWidget {
   const EbookList({super.key});
@@ -26,7 +26,7 @@ class _EbookListState extends State<EbookList> {
             children: [
               Padding(
                 padding: EdgeInsets.symmetric(vertical: Dimensions.paddingLg),
-                child: Text('Leitura de Ebooks',
+                child: Text('Leitor de eBooks',
                     style: GoogleFonts.silkscreen(
                         textStyle: TextStyle(
                             color: AppColors.textColor,
